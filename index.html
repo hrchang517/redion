@@ -577,7 +577,7 @@ function renderGrid(cat, keyword){
       ${p.badge ? `<div class="pop-badge">${p.badge}</div>` : ""}
       ${p.deal==="만원" ? `<div class="deal-badge is-10k">월 1만원<br>혜택</div>` : p.promo ? `<div class="deal-badge is-half">반값<br>혜택</div>` : ""}
       ${p.img ? `<div class="thumb" data-photo="${PRODUCTS.indexOf(p)}" role="button" tabindex="0" title="제품 사진·상세 보기"><img src="${p.img}" alt="${p.brand} ${p.name}" width="480" height="400" onerror="this.closest('.thumb').remove()" loading="${i<4?"eager":"lazy"}" decoding="async"></div>` : ""}
-      <div class="cat"><span class="cat-l">${p.catName}<span class="prov">${provider(p)}</span></span>${p.promo?`<span class="half${p.deal?" deal-10k":""}">${p.deal||"반값"}</span>`:(p.badge?`<span class="badge">${p.badge}</span>`:"")}</div>
+      <div class="cat"><span class="cat-l">${p.catName}<span class="prov">${provider(p)}</span></span>${p.promo?`<span class="half${p.deal?" deal-10k":""}">${p.deal||"반값"}</span>`:""}</div>
       <h3 class="pname">${p.brand} ${p.name}</h3>
       ${p.model ? `<div class="model">${p.model}</div>` : ""}
       <div class="feat-wrap">
