@@ -305,8 +305,8 @@ footer p{margin:2px 0}
     <div class="sec-head">
       <h2 class="list-title">렌탈마인드 상품 리스트</h2>
       <div class="tabs" role="group" aria-label="카테고리">
-        <button class="tab" data-cat="all" aria-pressed="true">전체</button>
-        <button class="tab" data-cat="health" aria-pressed="false">정수기·공기청정기</button>
+        <button class="tab" data-cat="all" aria-pressed="false">전체</button>
+        <button class="tab" data-cat="health" aria-pressed="true">정수기·공기청정기</button>
         <button class="tab" data-cat="air" aria-pressed="false">에어컨</button>
         <button class="tab" data-cat="big" aria-pressed="false">냉장고·세탁기</button>
         <button class="tab" data-cat="prov:kt" aria-pressed="false">KT 가전구독</button>
@@ -584,7 +584,7 @@ function renderGrid(cat, keyword){
     </article>`).join("") || `<p style="grid-column:1/-1;padding:40px;text-align:center;color:var(--muted)">검색 결과가 없습니다</p>`;
 }
 function render(cat){ renderGrid(cat); }
-render("all");
+render("health");
 
 // 검색 기능
 (function(){
