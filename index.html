@@ -132,6 +132,7 @@ section{padding-block:16px}
   @keyframes bob{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-6px) rotate(-3deg)}}}
 .card h3.pname{cursor:default}
 .deal-badge{position:absolute;top:12px;right:12px;font-size:11px;font-weight:700;line-height:1.3;padding:5px 9px;border-radius:20px;text-align:center;white-space:nowrap;z-index:2}
+.pop-badge{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;line-height:1;padding:5px 9px;border-radius:20px;white-space:nowrap;z-index:2;background:#fff3f3;color:var(--on);border:1.5px solid var(--on)}
 .deal-badge.is-10k{background:#e8f4ff;color:var(--info);border:1.5px solid var(--info)}
 .deal-badge.is-half{background:#f3eeff;color:var(--violet);border:1.5px solid var(--violet)}
 .photo-box{aspect-ratio:4/3;max-width:100%;border-radius:12px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -572,6 +573,7 @@ function renderGrid(cat, keyword){
   });
   $("#grid").innerHTML = filtered.map((p,i) => `
     <article class="card">
+      ${p.badge ? `<div class="pop-badge">${p.badge}</div>` : ""}
       ${p.deal==="만원" ? `<div class="deal-badge is-10k">월 1만원<br>혜택</div>` : p.promo ? `<div class="deal-badge is-half">반값<br>혜택</div>` : ""}
       ${p.img ? `<div class="thumb" data-photo="${PRODUCTS.indexOf(p)}" role="button" tabindex="0" title="제품 사진·상세 보기"><img src="${p.img}" alt="${p.brand} ${p.name}" width="480" height="400" onerror="this.closest('.thumb').remove()" loading="${i<4?"eager":"lazy"}" decoding="async"></div>` : ""}
       <div class="cat"><span class="cat-l">${p.catName}<span class="prov">${provider(p)}</span></span>${p.promo?`<span class="half${p.deal?" deal-10k":""}">${p.deal||"반값"}</span>`:(p.badge?`<span class="badge">${p.badge}</span>`:"")}</div>
