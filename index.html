@@ -164,7 +164,8 @@ section{padding-block:16px}
 .price small{color:var(--muted);font-size:13px}
 .price strong.ask{font-size:14.5px;color:var(--on);font-weight:800}
 .price strong{font-family:var(--display);font-size:24px;font-weight:900;font-variant-numeric:tabular-nums}
-.list-price{font-size:13.5px;color:var(--muted);margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.feat-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.list-price{font-size:13.5px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
 .list-price b{color:var(--ink);font-weight:700}
 .term{font-size:12.5px;color:var(--muted)}
 .card .btn{width:100%;padding:11px}
@@ -579,8 +580,10 @@ function renderGrid(cat, keyword){
       <div class="cat"><span class="cat-l">${p.catName}<span class="prov">${provider(p)}</span></span>${p.promo?`<span class="half${p.deal?" deal-10k":""}">${p.deal||"반값"}</span>`:(p.badge?`<span class="badge">${p.badge}</span>`:"")}</div>
       <h3 class="pname">${p.brand} ${p.name}</h3>
       ${p.model ? `<div class="model">${p.model}</div>` : ""}
-      <ul class="feat">${p.feat.map(f=>`<li>${f}</li>`).join("")}</ul>
-      ${p.promo?`<div class="promo-line${p.deal?" deal-10k":""}">${p.promo}</div>`:""}
+      <div class="feat-wrap">
+        <ul class="feat">${p.feat.map(f=>`<li>${f}</li>`).join("")}</ul>
+        ${p.promo?`<div class="promo-line${p.deal?" deal-10k":""}">${p.promo}</div>`:""}
+      </div>
       <div class="list-price">${p.price ? `${(p.years||5)+"년 약정 기준 "}월 <b>${won(p.price)}</b>원부터` : "약정 기준 요금 상담 시 안내"}</div>
       <div class="price"><small>월 요금</small><strong class="ask">상담 시 최저가 안내</strong></div>
       <div class="term">약정기간·제휴카드 할인까지 비교해 드려요</div>
